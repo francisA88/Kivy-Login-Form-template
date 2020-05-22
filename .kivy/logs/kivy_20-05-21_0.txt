@@ -1,0 +1,95 @@
+[INFO   ] Logger: Record log in /storage/emulated/0/projects/Kivy_Login_Template/.kivy/logs/kivy_20-05-21_0.txt
+[WARNING] [Config      ] Upgrading configuration in progress.
+[WARNING] [Config      ] Older configuration version detected (0 instead of 21)
+[INFO   ] Kivy: v1.11.0.dev0, git-8b6af30, 20190320
+[INFO   ] Python: v3.7.2 (default, Mar 20 2019, 14:25:26) 
+[GCC 8.2.0]
+[INFO   ] Factory: 184 symbols loaded
+[INFO   ] Image: Providers: img_tex, img_dds, img_sdl2, img_pil, img_gif (img_ffpyplayer ignored)
+[INFO   ] Text: Provider: sdl2
+[INFO   ] Window: Provider: sdl2
+[INFO   ] GL: Using the "OpenGL ES 2" graphics system
+[INFO   ] GL: Backend used <sdl2>
+[INFO   ] GL: OpenGL version <b'OpenGL ES 2.0 58bf738'>
+[INFO   ] GL: OpenGL vendor <b'ARM'>
+[INFO   ] GL: OpenGL renderer <b'Mali-400 MP'>
+[INFO   ] GL: OpenGL parsed version: 2, 0
+[INFO   ] GL: Texture max size <4096>
+[INFO   ] GL: Texture max units <8>
+[INFO   ] Window: auto add sdl2 input provider
+[INFO   ] Window: virtual keyboard not allowed, single mode, not docked
+[WARNING] stderr: Traceback (most recent call last):
+[WARNING] stderr:   File "/data/user/0/ru.iiec.pydroid3/files/arm-linux-androideabi/lib/python3.7/site-packages/kivy/lang/builder.py", line 249, in create_handler
+[WARNING] stderr:     return eval(value, idmap), bound_list
+[WARNING] stderr:   File "/storage/emulated/0/projects/Kivy_Login_Template/login.kv", line 59, in <module>
+[WARNING] stderr:     content: Factory.get("ConfPopupContent")()
+[WARNING] stderr: NameError: name 'Factory' is not defined
+[WARNING] stderr: 
+[WARNING] stderr: During handling of the above exception, another exception occurred:
+[WARNING] stderr: 
+[WARNING] stderr: Traceback (most recent call last):
+[WARNING] stderr:   File "/data/user/0/ru.iiec.pydroid3/files/arm-linux-androideabi/lib/python3.7/site-packages/kivy/lang/builder.py", line 615, in _apply_rule
+[WARNING] stderr:     rctx['ids'])
+[WARNING] stderr:   File "/data/user/0/ru.iiec.pydroid3/files/arm-linux-androideabi/lib/python3.7/site-packages/kivy/lang/builder.py", line 254, in create_handler
+[WARNING] stderr:     cause=tb)
+[WARNING] stderr: kivy.lang.builder.BuilderException: Parser: File "/storage/emulated/0/projects/Kivy_Login_Template/login.kv", line 59:
+[WARNING] stderr: ...
+[WARNING] stderr:      57:	#background_color: BARCOLOR
+[WARNING] stderr:      58:	title_size: 25
+[WARNING] stderr: >>   59:	content: Factory.get("ConfPopupContent")()
+[WARNING] stderr:      60:	auto_dismiss: False
+[WARNING] stderr:      61:	
+[WARNING] stderr: ...
+[WARNING] stderr: NameError: name 'Factory' is not defined
+[WARNING] stderr:   File "/data/user/0/ru.iiec.pydroid3/files/arm-linux-androideabi/lib/python3.7/site-packages/kivy/lang/builder.py", line 249, in create_handler
+[WARNING] stderr:     return eval(value, idmap), bound_list
+[WARNING] stderr:   File "/storage/emulated/0/projects/Kivy_Login_Template/login.kv", line 59, in <module>
+[WARNING] stderr:     content: Factory.get("ConfPopupContent")()
+[WARNING] stderr: 
+[WARNING] stderr: 
+[WARNING] stderr: During handling of the above exception, another exception occurred:
+[WARNING] stderr: 
+[WARNING] stderr: Traceback (most recent call last):
+[WARNING] stderr:   File "/storage/emulated/0/projects/Kivy_Login_Template/main.py", line 74, in <module>
+[WARNING] stderr:     class MailApp(App):
+[WARNING] stderr:   File "/storage/emulated/0/projects/Kivy_Login_Template/main.py", line 75, in MailApp
+[WARNING] stderr:     confPopup=ConfPopup(size_hint=[None, None],size=(400,250), pos_hint={'center_x':.5, 'center_y':.5})
+[WARNING] stderr:   File "/data/user/0/ru.iiec.pydroid3/files/arm-linux-androideabi/lib/python3.7/site-packages/kivy/uix/modalview.py", line 161, in __init__
+[WARNING] stderr:     super(ModalView, self).__init__(**kwargs)
+[WARNING] stderr:   File "/data/user/0/ru.iiec.pydroid3/files/arm-linux-androideabi/lib/python3.7/site-packages/kivy/uix/anchorlayout.py", line 68, in __init__
+[WARNING] stderr:     super(AnchorLayout, self).__init__(**kwargs)
+[WARNING] stderr:   File "/data/user/0/ru.iiec.pydroid3/files/arm-linux-androideabi/lib/python3.7/site-packages/kivy/uix/layout.py", line 76, in __init__
+[WARNING] stderr:     super(Layout, self).__init__(**kwargs)
+[WARNING] stderr:   File "/data/user/0/ru.iiec.pydroid3/files/arm-linux-androideabi/lib/python3.7/site-packages/kivy/uix/widget.py", line 348, in __init__
+[WARNING] stderr:     Builder.apply(self, ignored_consts=self._kwargs_applied_init)
+[WARNING] stderr:   File "/data/user/0/ru.iiec.pydroid3/files/arm-linux-androideabi/lib/python3.7/site-packages/kivy/lang/builder.py", line 469, in apply
+[WARNING] stderr:     self._apply_rule(widget, rule, rule, ignored_consts=ignored_consts)
+[WARNING] stderr:   File "/data/user/0/ru.iiec.pydroid3/files/arm-linux-androideabi/lib/python3.7/site-packages/kivy/lang/builder.py", line 630, in _apply_rule
+[WARNING] stderr:     e), cause=tb)
+[WARNING] stderr: kivy.lang.builder.BuilderException: Parser: File "/storage/emulated/0/projects/Kivy_Login_Template/login.kv", line 59:
+[WARNING] stderr: ...
+[WARNING] stderr:      57:	#background_color: BARCOLOR
+[WARNING] stderr:      58:	title_size: 25
+[WARNING] stderr: >>   59:	content: Factory.get("ConfPopupContent")()
+[WARNING] stderr:      60:	auto_dismiss: False
+[WARNING] stderr:      61:	
+[WARNING] stderr: ...
+[WARNING] stderr: BuilderException: Parser: File "/storage/emulated/0/projects/Kivy_Login_Template/login.kv", line 59:
+[WARNING] stderr: ...
+[WARNING] stderr:      57:	#background_color: BARCOLOR
+[WARNING] stderr:      58:	title_size: 25
+[WARNING] stderr: >>   59:	content: Factory.get("ConfPopupContent")()
+[WARNING] stderr:      60:	auto_dismiss: False
+[WARNING] stderr:      61:	
+[WARNING] stderr: ...
+[WARNING] stderr: NameError: name 'Factory' is not defined
+[WARNING] stderr:   File "/data/user/0/ru.iiec.pydroid3/files/arm-linux-androideabi/lib/python3.7/site-packages/kivy/lang/builder.py", line 249, in create_handler
+[WARNING] stderr:     return eval(value, idmap), bound_list
+[WARNING] stderr:   File "/storage/emulated/0/projects/Kivy_Login_Template/login.kv", line 59, in <module>
+[WARNING] stderr:     content: Factory.get("ConfPopupContent")()
+[WARNING] stderr: 
+[WARNING] stderr:   File "/data/user/0/ru.iiec.pydroid3/files/arm-linux-androideabi/lib/python3.7/site-packages/kivy/lang/builder.py", line 615, in _apply_rule
+[WARNING] stderr:     rctx['ids'])
+[WARNING] stderr:   File "/data/user/0/ru.iiec.pydroid3/files/arm-linux-androideabi/lib/python3.7/site-packages/kivy/lang/builder.py", line 254, in create_handler
+[WARNING] stderr:     cause=tb)
+[WARNING] stderr: 

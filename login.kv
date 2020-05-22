@@ -1,0 +1,247 @@
+#:set RED (1,0,0)
+#:set GREEN (0,1,0)
+#:set LBLUE (0,.2, 1)
+#:set WHITE (1,1,1,1)
+#:set BARCOLOR (.2, .2, .2, 1)
+#:set btnBgNormal "resources/images/btnBackground.png"
+#:set btnBgDown "resources/images/btnBackgroundDown.png"
+#:set BODYCOLOR (.2, .2, .3, 1)
+#:set TEXTCOLOR "dddddd"
+
+#:import Factory kivy.factory.Factory
+#:import Window kivy.core.window.Window
+#:import Animation kivy.animation.Animation
+#:import Clock kivy.clock.Clock
+
+<TextInput>:
+	cursor_color: .7,.7,.7,1
+#<Footer Class>#
+<Footer@Widget>:
+	FloatLayout:
+		id: footer
+		size: root.right, 30
+		pos:0,0
+		canvas.after:
+			Color:
+				rgba: BARCOLOR
+			Rectangle:
+				size: self.size
+				pos: self.pos
+#</Footer Class>#
+<ConfPopupContent@GridLayout>:
+	cols:1
+	rows:2
+	Label:
+		text: 'You are about to leave the app...'
+	BoxLayout:
+		size_hint_y: .6
+		spacing: 2
+		Button:
+			text: "Stay"
+			on_press: app.confPopup.dismiss()
+			background_down: btnBgDown
+			background_normal: btnBgNormal
+		Button:
+			text: "Leave"
+			outline_color: 1,.8,.6
+			on_press: exit()
+			background_down: btnBgDown
+			background_normal: btnBgNormal
+			
+<ConfPopup>:
+	id: confPopup
+	separator_height:2
+	separator_color: BODYCOLOR
+	pos_hint: {'center_x':.5, 'center_y':.5}
+	title: "Confirmation"
+	title_color: .8,.8,.8,1
+	#background_color: BARCOLOR
+	title_size: 25
+	content: Factory.get("ConfPopupContent")()
+	auto_dismiss: False
+	
+<ErrPopupContent@BoxLayout>:
+	orientation: 'vertical'
+	Label:
+		text: "Oops! An Error has Occured.\nTry checking your internet connection"
+		text_size: root.width, 30
+		halign: "left"
+		width: root.width
+	Button:
+		text: "Okay"
+		background_down: btnBgDown
+		background_normal: btnBgNormal
+		
+<ErrorPopup>:
+	id: errorpopup
+	separator_height:2
+	separator_color: BODYCOLOR
+	pos_hint: {'center_x':.5, 'center_y':.5}
+	size_hint: None, None
+	size: 400,200
+	title: "Error:"
+	title_color: .8,.8,.8,1
+	#background_color: BARCOLOR
+	title_size: 25
+	content: Factory.get("ErrPopupContent")()
+
+#<Main Part>#
+<LoginPage>:
+	name:"login page"
+#<TopBar widget>#
+	Widget:
+		id: tbar
+		size: root.width,70
+		pos: 0, root.top-70
+		canvas:
+			Color:
+				rgba: BARCOLOR
+			Rectangle:
+				size: root.width, 70
+				pos: 0, root.top-70
+			Color:
+				rgb: .3, .3, .3
+			Line:
+				width: 2.5
+				points: 0, root.top-65, root.right-70, root.top-65
+			Color:
+				rgba:1,1,1,.8
+
+		Label:
+			id: headerText
+			text: "Fill in Your Text Here If Needed"
+			width: 340
+			font_size: 15 #Change to fit the text as you see fit
+			pos: root.center_x-170, root.top-82
+		FloatLayout:
+			id: sidebarBtn
+			size_hint: None, None
+			pos: 0.05*tbar.right, root.top-self.height-10
+			size: 50,40	
+			canvas.after:
+				Color:
+					rgb: 1,1,1, .8
+				#Uncomment next four lines to see some changes to the top bar
+				#Rectangle:
+				#	size: self.size
+				#	pos: self.pos
+				#	source: "path_to_a_picture_file" #can be put if you want an icon on the top bar left side. Else, you get a small white pic there instead.
+
+	#</TopBar>#
+
+#<main body>#
+	#ConfPopup
+	Widget:
+		id: mainBody
+		size: root.size #root.top-n where n must be the same as TopBar's size[1]
+		canvas:
+			Color:
+				rgba: BODYCOLOR
+			Rectangle:
+				size: self.right, self.top-70
+			Color:
+				rgba: .3, .3, .3, .8
+			RoundedRectangle:
+				radius: 5,5
+				size: self.right-20, 400
+				pos: root.center_x- (self.right-20)/2, root.center_y - 200
+				
+#</main body>#
+
+#<Login form>#
+	LoginForm:
+		id: loginform
+		Label:
+			id: emailTag
+			text: "[color=#%s]Email:  [/color]"%TEXTCOLOR
+			markup: True
+			font_size: 24
+			halign:"left"
+			width: 1
+			pos: 70, root.top-305
+		TextInput:
+			id: emailInput
+			#cursor_color: BARCOLOR
+			cursor_width: 3
+			multiline: False
+			font_size: "16sp"
+			padding_y: 10
+			size: (root.right/1.2) + 20, 50
+			pos: root.center_x-self.size[0]/2, root.top-320
+			text_size: 12, self.top
+			background_color: WHITE
+			foreground_color: WHITE
+			background_normal: btnBgNormal
+			background_active:  btnBgDown
+			on_text_validate:
+				passwordInput.focus=True
+		Label:
+			id: passwordTag
+			text: "[color=#%s]Password:[/color]"%TEXTCOLOR
+			outline_color: 1,.2, .3
+			markup: True
+			font_size: 24
+			width: 1
+			pos: 90, root.top-400
+		TextInput:
+			id: passwordInput
+			#cursor_color: BARCOLOR
+			font_size: "16sp"
+			padding_y: 10
+			cursor_width: 3
+			size: (root.right/1.2) + 20, 50
+			pos: root.center_x-self.size[0]/2, root.top-415
+			keyboard_suggestions: False #True
+			password: True
+			password_mask: "•"
+			multiline: False
+			background_color: WHITE
+			foreground_color: WHITE
+			background_normal: btnBgNormal
+			background_active: btnBgDown
+		
+		Label:
+			id: loginTitle
+			text: "[color=#%s]Login Page[/color]"%TEXTCOLOR
+			font_size: 35
+			underline: True
+			pos: root.center_x-50, root.top-200
+			markup: True
+		Button:
+			id: exitBtn
+			text: "[color=#CCC]Leave[/color]"
+			markup: True
+			size: 160,60
+			background_down: btnBgDown
+			background_normal: btnBgNormal
+			pos: root.center_x-210, root.top-520	
+			on_press: app.exitConfirmation()
+		Button:
+			id: proceedBtn
+			size: 160, 60
+			text: "[color=#CCC]Proceed[/color]"
+			markup: True
+			background_down: btnBgDown
+			background_normal: btnBgNormal
+			pos: root.center_x+50, root.top-520
+			on_press: (lambda: 1)#Go ahead function. Define your own function here
+				#root.popup()
+#</LoginForm>#
+
+#<SideBar>#
+			
+#</SideBar>#
+
+#<Footer>#
+	Footer:
+		id: footer
+		size: root.right, 30
+		pos:0,0
+		Label:
+			text: "[color=111111]Version 0.1[/color]"
+			size: 20,20
+			font_size:20
+			width: 20
+			markup: True
+			pos: root.right- 65, 3
+#</Footer>#
